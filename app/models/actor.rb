@@ -7,8 +7,8 @@ class Actor < ActiveRecord::Base
   end
 
   def list_roles
-    self.characters.map do |character|
-      "#{character.name} - #{Show.where("id = ?", character.show_id).first.name}"
+    characters.map do |character|
+      "#{character.name} - #{character.show.name}"
     end
   end
 
